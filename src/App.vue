@@ -9,6 +9,7 @@
 
   body
     margin: 0
+    background-color: #10100e
 
   #app
     font-family: 'Avenir', Helvetica, Arial, sans-serif
@@ -18,5 +19,6 @@
     color: #2c3e50
     margin: 0
     padding: 0
+    background-color: #10100e
 
 </style>
