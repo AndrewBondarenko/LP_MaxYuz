@@ -86,7 +86,29 @@
                     <div class="contact-title">
                         <h2>CONTACT ME</h2>
                     </div>
-
+                    <div class="contact-info">
+                        <div class="contact-info-text">
+                            <h2>EMAIL : maxyuz.production@gmail.com</h2>
+                            <h2>PHONE NUMBER: +380 63 858 2636</h2>
+                        </div>
+                    </div>
+                    <div class="contact-links">
+                        <div class="contact-links-item">
+                            <a href="https://www.instagram.com/max_yuz/?hl=ru" target="_blank">
+                                <img  src="../assets/images/instagram.png" alt="">
+                            </a>
+                        </div>
+                        <div class="contact-links-item">
+                            <a href="https://www.youtube.com/channel/UC2NOFzo1h_YpEMVveeEUF1g" target="_blank">
+                                <img src="../assets/images/youtube.png" alt="">
+                            </a>
+                        </div>
+                        <div class="contact-links-item">
+                            <a href="" target="_blank">
+                                <img src="../assets/images/facebook.png" alt="">
+                            </a>
+                        </div>
+                    </div>
 
                     <div id="contact-form" class="contact-form">
                         <h2 class="contact-form_title">SEND ME A MESSAGE</h2>
@@ -358,13 +380,43 @@
     .block-contact
         display: flex
         flex-direction: column
-        width: 765px
+        width: 600px
         margin: 50px auto 100px auto
         .contact-title
             margin: 0 auto 40px auto
             h2
                 color: whitesmoke
                 font-weight: 300
+        .contact-info
+            display: flex
+            flex-direction: column
+            border: 2px solid whitesmoke
+            padding: 20px
+            margin-bottom: 25px
+            .contact-info-text
+                text-align: left
+                h2
+                    font-weight: 300
+                h2:first-child
+                    margin-top: 0
+                h2:last-child
+                    margin-bottom: 0
+
+        .contact-links
+            display: flex
+            flex-direction: row
+            justify-content: center
+            .contact-links-item
+                height: 45px
+                padding: 1px
+                background-color: whitesmoke
+                border-radius: 50%
+                margin: 10px
+                cursor: pointer
+                img
+                    height: 45px
+
+
 
         .contact-form
             margin: 0 auto
@@ -384,6 +436,7 @@
         color: whitesmoke
         text-align: center
         font-weight: 300
+        margin-top: 15px
 
     .contact-form
         input
@@ -409,6 +462,7 @@
             border: solid 1px whitesmoke
             font-family: 'Barlow Semi Condensed', sans-serif
             padding: 10px 7px
+            height: 120px
             margin-bottom: 25px
             outline: none
             resize: none
