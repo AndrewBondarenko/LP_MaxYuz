@@ -59,7 +59,7 @@
                                 <h2>CAMERAMAN</h2>
                             </div>
                             <div class="about-content-description-photo">
-                                <img src="../assets/images/bannerPhoto.png" alt="Max Yuz">
+                                <img src="../assets/images/maxyuz1.png" alt="Max Yuz">
                             </div>
                         </div>
 
@@ -82,8 +82,27 @@
             </div>
 
             <div class="block">
-                <div class="block-form">
+                <div class="block-contact"  id="contact">
+                    <div class="contact-title">
+                        <h2>CONTACT ME</h2>
+                    </div>
 
+
+                    <div id="contact-form" class="contact-form">
+                        <h2 class="contact-form_title">SEND ME A MESSAGE</h2>
+
+                        <!--<div class="separator"></div>-->
+
+                        <div v-if="isSending" class="loading">SENDING...</div>
+
+                        <form class="form" @submit="onSubmit">
+                            <input required name="name" v-model='contact.name' placeholder="Name" type="text" autocomplete="off">
+                            <input required name="email" v-model="contact.email" placeholder="E-mail" type="email" autocomplete="off">
+                            <textarea name="message" v-model="contact.message" rows="4" placeholder="Message"></textarea>
+                            <button class="button">Send</button>
+                        </form>
+
+                    </div>
                 </div>
             </div>
 
@@ -93,7 +112,57 @@
 
 <script>
     export default {
-        name: "Main"
+        name: "Main",
+        data() {
+            return {
+                contact: {
+                    name: '',
+                    email: '',
+                    message: '',
+                },
+
+                isSending: false
+            }
+        },
+
+        methods: {
+
+            /**
+             * Clear the form
+             */
+            clearForm() {
+                for (let field in this.contact) {
+                    this.contact[field] = ''
+                }
+            },
+
+            /**
+             * Handler for submit
+             */
+            onSubmit(evt) {
+                evt.preventDefault();
+
+                this.isSending = true;
+
+                setTimeout(() => {
+                    // Build for data
+                    let form = new FormData();
+                    for (let field in this.contact) {
+                        form.append(field, this.contact[field]);
+                    }
+
+                    // Send form to server
+                    this.$http.post('/app.php', form).then((response) => {
+                        console.log(response);
+                        this.clearForm();
+                        this.isSending = false;
+                    }).catch((e) => {
+                        console.log(e)
+                    });
+
+                }, 1000);
+            }
+        }
     }
 </script>
 
@@ -108,6 +177,7 @@
         margin: 0
         background-color: #10100e
         font-family: 'Barlow Semi Condensed', sans-serif
+        color: whitesmoke
     a
         text-decoration: none
         color: whitesmoke
@@ -119,7 +189,7 @@
         margin: 0 auto
 
     .block
-        height: 100vh
+        min-height: 100vh
 
     .block-banner
         display: flex
@@ -223,7 +293,7 @@
         width: 765px
         margin: 50px auto 100px auto
         .about-title
-            margin: 0 auto 40px auto
+            margin: 50px auto 40px auto
             h2
                 color: whitesmoke
                 font-weight: 300
@@ -283,5 +353,93 @@
                 &:hover
                     margin-left: 0
                     transition: 1.5s
+
+
+    .block-contact
+        display: flex
+        flex-direction: column
+        width: 765px
+        margin: 50px auto 100px auto
+        .contact-title
+            margin: 0 auto 40px auto
+            h2
+                color: whitesmoke
+                font-weight: 300
+
+        .contact-form
+            margin: 0 auto
+            max-width: 600px
+            width: 100%
+
+        /*.separator*/
+            /*border-bottom: solid 1px #ccc*/
+            /*margin-bottom: 15px*/
+
+        .form
+            display: flex
+            flex-direction: column
+            font-size: 16px
+
+    .contact-form_title
+        color: whitesmoke
+        text-align: center
+        font-weight: 300
+
+    .contact-form
+        input
+            &[type="email"], &[type="text"]
+                border-bottom: solid 1px whitesmoke
+                border-left: none
+                border-right: none
+                border-top: none
+                font-family: 'Barlow Semi Condensed', sans-serif
+                padding: 10px 7px
+                margin-bottom: 25px
+                outline: none
+                background-color: #10100e
+                color: whitesmoke
+                box-sizing: border-box
+            &::placeholder
+                color: whitesmoke
+            &:focus
+                border-bottom: solid 2px whitesmoke
+                padding: 10px 7px 9px 7px
+
+        textarea
+            border: solid 1px whitesmoke
+            font-family: 'Barlow Semi Condensed', sans-serif
+            padding: 10px 7px
+            margin-bottom: 25px
+            outline: none
+            resize: none
+            background-color: #10100e
+            color: whitesmoke
+            &::placeholder
+                color: whitesmoke
+
+
+        .button
+            background: #10100e
+            font-family: 'Barlow Semi Condensed', sans-serif
+            border: solid 2px whitesmoke
+            color: white
+            cursor: pointer
+            padding: 10px 50px
+            text-align: center
+            text-transform: uppercase
+
+            &:hover
+                background: whitesmoke
+                border: solid 2px whitesmoke
+                color: #10100e
+
+        input
+            &[type="email"], &[type="text"]
+                font-size: 15px
+                border-radius: 0
+
+        textarea, .button
+            font-size: 15px
+            border-radius: 0
 
 </style>
