@@ -116,6 +116,7 @@
                         <!--<div class="separator"></div>-->
 
                         <div v-if="isSending" class="loading">SENDING...</div>
+                        <div v-if="isSent" class="loading">YOUR MESSAGE SENT</div>
 
                         <form class="form" @submit="onSubmit">
                             <input required name="name" v-model='contact.name' placeholder="Name" type="text" autocomplete="off">
@@ -140,50 +141,49 @@
                 contact: {
                     name: '',
                     email: '',
-                    message: '',
+                    message: ''
                 },
-
-                isSending: false
+                isSending: false,
+                isSent: false
             }
         },
-
+        watch: {
+            isSent: function(){
+                setTimeout(()=>{
+                    this.isSent = false
+                },3000);
+            }
+        },
         methods: {
+            onSubmit(e) {
+                e.preventDefault();
+                let currentObj = this;
+                this.isSending = true;
 
-            /**
-             * Clear the form
-             */
+                this.axios.post('https://max-yuz.herokuapp.com/feedback', {
+                    email: this.contact.email,
+                    name: this.contact.name,
+                    message: this.contact.message
+                })
+                    .then(function (response) {
+                        currentObj.output = response.data;
+                        currentObj.isSending = false;
+                        currentObj.isSent = true;
+                        currentObj.clearForm();
+                        console.log("ok");
+                    })
+                    .catch(function (error) {
+                        currentObj.output = error;
+                        currentObj.isSending = false;
+                        currentObj.clearForm();
+                        console.log(error);
+                    });
+            },
             clearForm() {
                 for (let field in this.contact) {
                     this.contact[field] = ''
                 }
             },
-
-            /**
-             * Handler for submit
-             */
-            onSubmit(evt) {
-                evt.preventDefault();
-
-                this.isSending = true;
-
-                setTimeout(() => {
-                    // Build for data
-                    let form = new FormData();
-                    for (let field in this.contact) {
-                        form.append(field, this.contact[field]);
-                    }
-
-                    // Send form to server
-                    this.$http.post('/app.php', form).then((response) => {
-                        console.log(response);
-                        this.clearForm();
-                        this.isSending = false;
-                    }).catch((e) => {
-                        console.log(e)
-                    });
-
-                }, 1000);
-            }
         }
     }
 </script>
