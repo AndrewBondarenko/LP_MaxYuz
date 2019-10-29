@@ -151,7 +151,7 @@
             isSent: function(){
                 setTimeout(()=>{
                     this.isSent = false
-                },3000);
+                },4000);
             }
         },
         methods: {
