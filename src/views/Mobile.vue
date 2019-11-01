@@ -4,11 +4,6 @@
             <div class="block-banner">
                 <div class="banner-content">
                     <div class="banner-content-header">
-                        <div class="banner-content-image">
-                            <img src="../assets/images/bannerPhoto.png" alt="Max Yuz">
-                            <div class="banner-image-border">
-                            </div>
-                        </div>
                         <div class="banner-content-description">
                             <div class="banner-content-description-name">
                                 <h2>MAX YUZ</h2>
@@ -17,10 +12,43 @@
                                 <h2>CAMERAMAN</h2>
                             </div>
                         </div>
+                        <div class="banner-content-image">
+                            <img src="../assets/images/bannerPhoto.png" alt="Max Yuz">
+                            <div class="banner-image-border">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="block">
+            <div class="block-about" id="about">
+                <div class="about-title">
+                    <h2>ABOUT ME</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-content-description">
+                        <div class="about-content-description-text">
+                            <h2>MAX YUZ</h2>
+                            <h2>20 YEARS OLD</h2>
+                            <h2>KYIV CITY</h2>
+                            <h2>CAMERAMAN</h2>
+                        </div>
+                    </div>
+
+                    <div class="about-content-image">
+                        <img src="../assets/images/maxyuz3.jpg" alt="Max Yuz">
+                    </div>
+
+                    <div class="about-content-image">
+                        <img src="../assets/images/maxyuz2.jpg" alt="Max Yuz">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
 
         <div class="block">
             <div class="block-contact">
@@ -77,10 +105,10 @@ import ContactForm from '../components/ContactForm'
         display: flex
         flex-direction: column
         width: 310px
-        margin: 0 auto
+        margin: 0 auto 50px auto
         color: whitesmoke
         .banner-content
-            margin-top: 7vh
+            margin-top: 15px
             display: flex
             flex-direction: column
             .banner-content-header
@@ -99,10 +127,57 @@ import ContactForm from '../components/ContactForm'
                 flex-direction: row
                 justify-content: space-between
                 width: 310px
+                margin-bottom: 0
                 .banner-content-description-name,
                 .banner-content-description-spec
                     h2
                         font-weight: 300
+
+
+    .block-about
+        display: flex
+        flex-direction: column
+        width: 310px
+        margin: 20px auto 50px auto
+        .about-title
+            margin: 20px auto 10px auto
+            h2
+                color: whitesmoke
+                font-weight: 300
+        .about-content
+            display: flex
+            flex-direction: column
+            .about-content-description
+                display: flex
+                flex-direction: row
+                justify-content: space-between
+                .about-content-description-text
+                    width: 310px
+                    text-align: left
+                    border: 2px solid whitesmoke
+                    padding: 20px
+                    h2
+                        color: whitesmoke
+                        font-weight: 300
+                        font-size: 18px
+                    h2:first-child
+                        margin-top: 0
+                        margin-bottom: 20px
+                        font-size: 34px
+
+                .about-content-description-photo
+                    height: 310px
+                    width: 310px
+                    img
+                        height: 310px
+                        width: 310px
+
+            .about-content-image
+                width: 310px
+                margin: 20px auto 0 auto
+                img
+                    width: 310px
+
 
     .block-contact
         display: flex

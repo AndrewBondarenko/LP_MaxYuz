@@ -3,7 +3,7 @@
         <div v-if="windowWidth < 768">
             <Mobile></Mobile>
         </div>
-        <div  v-if="windowWidth > 768">
+        <div v-if="windowWidth > 768">
             <Desktop></Desktop>
         </div>
     </div>
