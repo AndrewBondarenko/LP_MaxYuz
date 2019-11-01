@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "start": "webpack-dev-server --inline --hot --host 0.0.0.0 --public $max-yuz-cameraman.herokuapp.com.glitch.me"
+    "start": "vue-cli-service serve --inline --hot --host 0.0.0.0 --public $max-yuz-cameraman.herokuapp.com.glitch.me"
   },
   "dependencies": {
     "axios": "^0.19.0",
