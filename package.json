@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve, --inline --progress --port 8080 --hot --host 0.0.0.0 **--public www.example.com:8080**",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "start": "vue-cli-service serve"
   },
