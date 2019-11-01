@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve, --inline --progress --port 8080 --hot --host 0.0.0.0 **--public www.example.com:8080**",
     "build": "vue-cli-service build",
-    "start": "vue-cli-service serve --inline --hot --host 0.0.0.0 --public $maxyuz.glitch.me"
+    "start": "vue-cli-service serve"
   },
   "dependencies": {
     "axios": "^0.19.0",
