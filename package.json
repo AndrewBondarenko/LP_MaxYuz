@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "start": "vue-cli-service serve --inline --hot --host 0.0.0.0"
+    "start": "vue-cli-service serve --inline --hot --host 0.0.0.0 --public $maxyuz.glitch.me"
   },
   "dependencies": {
     "axios": "^0.19.0",
