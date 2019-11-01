@@ -116,7 +116,7 @@
                         <!--<div class="separator"></div>-->
 
                         <div v-if="isSending" class="loading">SENDING...</div>
-                        <div v-if="isSent" class="loading">YOUR MESSAGE SENT</div>
+                        <div v-if="isSent" class="loading">YOUR MESSAGE IS SENT</div>
 
                         <form class="form" @submit="onSubmit">
                             <input required name="name" v-model='contact.name' placeholder="Name" type="text" autocomplete="off">
