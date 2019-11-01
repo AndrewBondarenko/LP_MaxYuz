@@ -49,7 +49,6 @@
             </div>
         </div>
 
-
         <div class="block">
             <div class="block-contact">
                 <div class="contact-title">
@@ -132,7 +131,6 @@ import ContactForm from '../components/ContactForm'
                 .banner-content-description-spec
                     h2
                         font-weight: 300
-
 
     .block-about
         display: flex

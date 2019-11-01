@@ -119,7 +119,6 @@
             &::placeholder
                 color: whitesmoke
 
-
         .button
             background: #10100e
             font-family: 'Barlow Semi Condensed', sans-serif
