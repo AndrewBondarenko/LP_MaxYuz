@@ -5,6 +5,7 @@
                 <div class="block-banner">
                     <div class="banner-menu">
                         <div class="menu-logo">
+
                             <div class="logo-text">
                                 <h2>MAX YUZ</h2>
                             </div>
@@ -32,6 +33,11 @@
                                 <div class="banner-title-border">
                                 </div>
                             </div>
+
+                            <div class="logo-img">
+                                <img src="../assets/images/logo2.png" alt="">
+                            </div>
+
                         </div>
                         <div class="banner-content-description">
                             <div class="banner-content-description-name">
@@ -162,6 +168,7 @@ import ContactForm from '../components/ContactForm'
     .block
         min-height: 100vh
 
+
     .block-banner
         display: flex
         flex-direction: column
@@ -175,8 +182,11 @@ import ContactForm from '../components/ContactForm'
             justify-content: space-between
             .menu-logo
                 cursor: pointer
+                display: flex
+                flex-direction: row
                 h2
                     font-weight: 300
+
             .menu-item, .menu-logo
                 cursor: pointer
                 text-align: center
@@ -245,6 +255,14 @@ import ContactForm from '../components/ContactForm'
                         &:hover
                             margin-left: -5px
                             transition: 1.5s
+                .logo-img
+                    position: absolute
+                    margin-top: 85px
+                    margin-left: 432px
+                    z-index: 100
+                    img
+                        height: 80px
+
             .banner-content-description
                 display: flex
                 flex-direction: row
@@ -254,7 +272,6 @@ import ContactForm from '../components/ContactForm'
                 .banner-content-description-spec
                     h2
                         font-weight: 300
-
 
     .block-about
         display: flex
