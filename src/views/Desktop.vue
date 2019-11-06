@@ -257,11 +257,11 @@ import ContactForm from '../components/ContactForm'
                             transition: 1.5s
                 .logo-img
                     position: absolute
-                    margin-top: 85px
-                    margin-left: 432px
+                    margin-top: 391px
+                    margin-left: 391px
                     z-index: 100
                     img
-                        height: 80px
+                        height: 50px
 
             .banner-content-description
                 display: flex
